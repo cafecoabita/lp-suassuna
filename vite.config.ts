@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/sala-suassuna-landing/", // ESTA É A LINHA QUE CORRIGE A TELA BRANCA
+  base: "/lp-sala-suassuna/", // ESTA É A LINHA QUE CORRIGE A TELA BRANCA
   server: {
     host: "::",
     port: 8080,

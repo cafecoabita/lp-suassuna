@@ -3,13 +3,41 @@ import AnimatedSection from "./00AnimatedSection";
 import { X } from "lucide-react";
 
 const photos = [
-  { src: "/images/sala-suassuna-01.png", alt: "Layout da Sala Suassuna", span: "md:col-span-2 md:row-span-2" },
-  { src: "/images/sala-suassuna-02.png", alt: "Mesas operacionais e cadeiras confortáveis", span: "" },
-  { src: "/images/sala-suassuna-03.png", alt: "Estrutura ideal para sua operação", span: "" },
-  { src: "/images/sala-suassuna-04.png", alt: "Sala privativa mobiliada e fino acabamento", span: "md:col-span-2" },
-  { src: "/images/sala-suassuna-05.png", alt: "Vista ampla da Sala Suassuna", span: "" },
-  { src: "/images/sala-suassuna-06.png", alt: "Espaço pronto para uso imediato", span: "" },
-  { src: "/images/sala-suassuna-07.png", alt: "Duas mesas de gestores e quadro", span: "md:col-span-2" },
+  { 
+    src: "/images/sala-suassuna-01.png", 
+    alt: "Layout da Sala Suassuna", 
+    span: "md:col-span-2 md:row-span-2" 
+  },
+  { 
+    src: "/images/sala-suassuna-02.png", 
+    alt: "Mesas operacionais e cadeiras confortáveis", 
+    span: "" 
+  },
+  { 
+    src: "/images/sala-suassuna-03.png", 
+    alt: "Estrutura ideal para sua operação", 
+    span: "" 
+  },
+  { 
+    src: "/images/sala-suassuna-04.png", 
+    alt: "Sala privativa mobiliada e fino acabamento", 
+    span: "md:col-span-2" 
+  },
+  { 
+    src: "/images/sala-suassuna-05.png", 
+    alt: "Vista ampla da Sala Suassuna", 
+    span: "" 
+  },
+  { 
+    src: "/images/sala-suassuna-06.png", 
+    alt: "Espaço pronto para uso imediato", 
+    span: "" 
+  },
+  { 
+    src: "images/sala-suassuna-07.png", 
+    alt: "Duas mesas de gestores e quadro", 
+    span: "md:col-span-2" 
+  },
 ];
 
 const GallerySection = () => {
