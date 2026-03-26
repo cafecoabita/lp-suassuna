@@ -2,6 +2,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import AnimatedSection from "./00AnimatedSection";
 
+declare global {
+  interface Window {
+    gtagSendEvent?: (url: string) => void;
+  }
+}
+
 const WHATSAPP_LINK = "https://wa.me/553121158984/?text=Olá!+Vi+no+site+sua+promoção+da+sala+privativa+Suassuna.+A+sala+ainda+está+disponível?";
 
 const FooterCTA = () => (
@@ -17,9 +23,9 @@ const FooterCTA = () => (
       <p className="text-lg opacity-60 mb-10 font-light">
         Agende uma visita e conheça a Sala Suassuna pessoalmente.
       </p>
-      <a 
-        href={WHATSAPP_LINK} 
-        target="_blank" 
+      <a
+        href={WHATSAPP_LINK}
+        target="_blank"
         rel="noopener noreferrer"
         onClick={() => {
           if (typeof window.gtagSendEvent === 'function') {

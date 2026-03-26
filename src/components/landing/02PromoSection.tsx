@@ -51,7 +51,7 @@ const PromoSection = () => (
           </div>
 
           <p className="text-xs text-muted-foreground mt-4">
-            *Promoção válida para contratos fechados até o final de junho. 
+            *Promoção válida para contratos fechados até o dia 10 de abril de 2.026.
           </p>
 
         </CardContent>
