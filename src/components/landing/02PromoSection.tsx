@@ -24,7 +24,7 @@ const PromoSection = () => (
         
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
           <Badge variant="secondary" className="flex items-center gap-1 text-xs font-bold px-3">
-            <Star className="h-3 w-3" /> PLANO ANUAL
+            <Star className="h-3 w-3" /> PLANO ANUAL <Star className="h-3 w-3" />
           </Badge>
         </div>
 
