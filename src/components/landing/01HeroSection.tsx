@@ -24,7 +24,7 @@ const HeroSection = () => {
       <motion.div
         className="absolute inset-0 bg-cover bg-center scale-110"
         style={{
-          backgroundImage: "url('/lp-sala-suassuna/images/sala-suassuna-02.webp')",
+          backgroundImage: "url('/lp-suassuna/images/sala-suassuna-02.webp')",
           y,
         }}
       />
