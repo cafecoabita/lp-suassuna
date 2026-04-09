@@ -16,6 +16,9 @@ const features = [
 const StructureSection = () => (
   <AnimatedSection className="py-20 md:py-28 px-6 bg-background">
     <div className="max-w-5xl mx-auto">
+      <p className="tracking-[0.3em] uppercase text-sm font-medium text-foreground/70 mb-4 text-center">
+        O que está incluso
+      </p>
       <h2 className="text-2xl md:text-4xl font-bold text-center mb-4 text-foreground">
         Estrutura da Sala
       </h2>
@@ -27,11 +30,11 @@ const StructureSection = () => (
         {features.map((f, i) => (
           <div
             key={i}
-            className="bg-secondary border border-border rounded-lg p-6 text-center hover:shadow-md transition-shadow"
+            className="group bg-zinc-100 border border-zinc-200 rounded-lg p-6 text-center hover:bg-black transition-colors duration-300"
           >
-            <f.icon className="h-7 w-7 mx-auto mb-3 text-foreground" strokeWidth={1.5} />
-            <p className="font-bold text-lg text-foreground">{f.label}</p>
-            <p className="text-sm text-muted-foreground">{f.desc}</p>
+            <f.icon className="h-7 w-7 mx-auto mb-3 text-foreground group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+            <p className="font-bold text-lg text-foreground group-hover:text-white transition-colors duration-300">{f.label}</p>
+            <p className="text-sm text-muted-foreground group-hover:text-white/70 transition-colors duration-300">{f.desc}</p>
           </div>
         ))}
       </div>

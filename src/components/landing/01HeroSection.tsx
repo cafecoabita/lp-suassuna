@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 declare global {
@@ -11,114 +10,108 @@ declare global {
 
 const WHATSAPP_LINK = "https://wa.me/553121158984/?text=Olá!+Vi+no+site+sua+promoção+da+sala+privativa+Suassuna.+A+sala+ainda+está+disponível?";
 
-const HeroSection = () => (
-  <section className="relative min-h-screen flex flex-col items-center justify-center bg-primary text-primary-foreground px-6 py-20 overflow-hidden">
-    {/* Subtle grid pattern */}
-    <div className="absolute inset-0 opacity-[0.03]" style={{
-      backgroundImage: "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)",
-      backgroundSize: "60px 60px"
-    }} />
+const HeroSection = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 600], [0, 600 * 0.4]);
 
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="relative z-10 text-center max-w-4xl mx-auto"
+  return (
+    <section
+      ref={ref}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Logo / Brand */}
-      <p className="text-sm tracking-[0.3em] uppercase mb-12 opacity-70 font-light">
-        Café Coabita Coworking
-      </p>
-
-      {/* Promo Badge */}
+      {/* Background image com parallax */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-8"
-      >
-        <Badge variant="outline" className="border-primary-foreground/40 text-primary-foreground px-4 py-2 text-sm font-medium tracking-wide">
-          🎉 Mês do Consumidor: 50% OFF na entrada!
-        </Badge>
-      </motion.div>
+        className="absolute inset-0 bg-cover bg-center scale-110"
+        style={{
+          backgroundImage: "url('/lp-sala-suassuna/images/sala-suassuna-02.webp')",
+          y,
+        }}
+      />
 
-      {/* Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 tracking-tight"
-      >
-        Sala Suassuna
-        <span className="block text-2xl md:text-3xl lg:text-4xl font-light mt-3 opacity-80">
-          Sua operação começa aqui
-        </span>
-      </motion.h1>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-foreground/60" />
 
-      {/* Subtitle */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        className="text-lg md:text-xl font-light opacity-70 mb-6 max-w-2xl mx-auto"
-      >
-        Sala comercial mobiliada para equipes de até 17 pessoas · 38m²
-      </motion.p>
-
-      {/* Subtitle 2 */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        className="text-white/70 font-light mt-3 mb-20 max-w-xl mx-auto"
-      >
-        Sua equipe merece uma sala pronta, mobiliada e profissional
-      </motion.p>
-
-      {/* CTA */}
+      {/* Conteúdo */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
+        transition={{ duration: 0.5 }}
+        className="relative z-10 text-center max-w-4xl mx-auto px-6"
       >
-        <a
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => {
-            if (typeof window.gtagSendEvent === 'function') {
-              window.gtagSendEvent(WHATSAPP_LINK);
-            }
-          }}
+        {/* Subtítulo / Brand */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="tracking-[0.3em] uppercase text-sm font-medium text-primary-foreground/70 mb-5"
         >
-          <Button
-            size="lg"
-            variant="secondary"
-            className="text-base px-8 py-6 font-semibold group"
+          Café Coabita Coworking
+        </motion.p>
+
+        {/* H1 */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-primary-foreground mb-10"
+        >
+          Sala Suassuna
+        </motion.h1>
+
+        {/* Parágrafo descritivo */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="text-xl md:text-2xl font-light text-primary-foreground/80 mb-6 max-w-2xl mx-auto"
+        >
+          Sala comercial mobiliada para equipes de até 17 pessoas · 38m²
+        </motion.p>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              e.preventDefault();
+              if (typeof window.gtagSendEvent === "function") {
+                window.gtagSendEvent(WHATSAPP_LINK);
+              } else {
+                window.open(WHATSAPP_LINK, "_blank");
+              }
+            }}
+            className="inline-flex items-center gap-2 bg-primary-foreground text-foreground font-semibold px-10 py-4 rounded-sm text-lg tracking-wide hover:bg-primary-foreground/90 transition-colors"
           >
             Agende uma visita
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </a>
+            <ArrowRight className="h-5 w-5" />
+          </a>
+        </motion.div>
       </motion.div>
-    </motion.div>
 
-    {/* Scroll indicator */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.4 }}
-      transition={{ duration: 1, delay: 1.2 }}
-      className="absolute bottom-10 left-1/2 -translate-x-1/2"
-    >
+      {/* Scroll indicator */}
       <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-        className="w-5 h-8 border-2 border-primary-foreground/30 rounded-full flex justify-center pt-1.5"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ duration: 1, delay: 1.2 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
-        <div className="w-1 h-2 bg-primary-foreground/50 rounded-full" />
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+          className="w-5 h-8 border-2 border-primary-foreground/30 rounded-full flex justify-center pt-1.5"
+        >
+          <div className="w-1 h-2 bg-primary-foreground/50 rounded-full" />
+        </motion.div>
       </motion.div>
-    </motion.div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default HeroSection;

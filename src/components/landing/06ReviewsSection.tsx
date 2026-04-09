@@ -18,13 +18,12 @@ const ReviewsSection = () => {
   return (
     <AnimatedSection className="py-20 md:py-28 px-6 bg-background">
       <div id="reviews" className="max-w-5xl mx-auto text-center">
-        <h2 className="text-2xl md:text-4xl font-bold mb-4 text-foreground">
+        <p className="tracking-[0.3em] uppercase text-sm font-medium text-foreground/70 mb-4">
+          Avaliações Reais
+        </p>
+        <h2 className="text-2xl md:text-4xl font-bold mb-10 text-foreground">
           O que nossos clientes dizem
         </h2>
-
-        <p className="text-sm md:text-base text-muted-foreground mb-10 max-w-2xl mx-auto">
-          Avaliações reais do Google Business do Café Coabita Coworking.
-        </p>
 
         <div className="rounded-2xl border border-border bg-card p-4 md:p-6 shadow-sm">
           <div

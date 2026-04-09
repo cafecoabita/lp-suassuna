@@ -4,8 +4,11 @@ import { MapPin, Train, Building, Clock, Navigation } from "lucide-react";
 const LocationSection = () => (
   <AnimatedSection className="py-20 md:py-28 px-6 bg-secondary">
     <div className="max-w-5xl mx-auto">
-      <h2 className="text-2xl md:text-4xl font-bold text-center mb-14 text-foreground">
+      <p className="tracking-[0.3em] uppercase text-sm font-medium text-foreground/70 mb-4 text-center">
         Localização
+      </p>
+      <h2 className="text-2xl md:text-4xl font-bold text-center mb-14 text-foreground">
+        Saiba onde nos encontrar
       </h2>
 
       <div className="grid md:grid-cols-2 gap-10 items-start">

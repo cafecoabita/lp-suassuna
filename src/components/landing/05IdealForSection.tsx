@@ -13,13 +13,12 @@ const segments = [
 const IdealForSection = () => (
   <AnimatedSection className="py-20 md:py-28 px-6 bg-secondary">
     <div className="max-w-4xl mx-auto text-center">
-      <h2 className="text-2xl md:text-4xl font-bold mb-4 text-foreground">
-        Ideal para diferentes perfis de equipe
-      </h2>
-
-      <p className="text-muted-foreground mb-10">
-        A Sala Suassuna pode se tornar uma...
+      <p className="tracking-[0.3em] uppercase text-sm font-medium text-foreground/70 mb-4">
+        Versatilidade
       </p>
+      <h2 className="text-2xl md:text-4xl font-bold mb-10 text-foreground">
+        Ideal para
+      </h2>
 
       <div className="flex flex-wrap justify-center gap-3">
         {segments.map((s) => (
