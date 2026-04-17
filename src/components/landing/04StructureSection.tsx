@@ -20,10 +20,10 @@ const StructureSection = () => (
         O que está incluso
       </p>
       <h2 className="text-2xl md:text-4xl font-bold text-center mb-4 text-foreground">
-        Estrutura da Sala
+        Estrutura da Sala Comercial
       </h2>
       <p className="text-center text-muted-foreground mb-14 max-w-xl mx-auto">
-        Projetada para operações que precisam de capacidade, conforto e infraestrutura profissional.
+        Sala comercial no coworking Café Coabita, projetada para operações que precisam de capacidade, conforto e infraestrutura profissional em Contagem/MG.
       </p>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
