@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import AnimatedSection from "./00AnimatedSection";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -14,6 +14,7 @@ const photos = [
 
 const GallerySection = () => {
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const prev = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -23,6 +24,24 @@ const GallerySection = () => {
   const next = (e: React.MouseEvent) => {
     e.stopPropagation();
     setLightbox((i) => (i === null ? 0 : i === photos.length - 1 ? 0 : i + 1));
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      setLightbox((i) => {
+        if (i === null) return i;
+        return diff > 0
+          ? (i === photos.length - 1 ? 0 : i + 1)
+          : (i === 0 ? photos.length - 1 : i - 1);
+      });
+    }
+    touchStartX.current = null;
   };
 
   return (
@@ -41,7 +60,7 @@ const GallerySection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[220px] gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[56vw] md:auto-rows-[220px] gap-4">
             {photos.map((photo, i) => (
               <button
                 key={i}
@@ -51,6 +70,7 @@ const GallerySection = () => {
                 <img
                   src={photo.src}
                   alt={photo.alt}
+                  loading={i === 0 ? "eager" : "lazy"}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-110 group-hover:-translate-y-1"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition" />
@@ -68,6 +88,8 @@ const GallerySection = () => {
         <div
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
           onClick={() => setLightbox(null)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <button
             className="absolute top-4 right-4 text-white hover:text-white/70 transition-colors"

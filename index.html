@@ -31,7 +31,7 @@
       "name": "Café Coabita Coworking",
       "description": "Espaço de coworking com sala comercial mobiliada para equipes de até 17 pessoas. 38m², estrutura completa, localizado no Eldorado, Contagem/MG.",
       "url": "https://cafecoabita.github.io/lp-suassuna/",
-      "image": "https://cafecoabita.github.io/lp-suassuna/images/sala-suassuna-01.png",
+      "image": "https://cafecoabita.github.io/lp-suassuna/images/sala-suassuna-01.webp",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Contagem",
@@ -54,6 +54,7 @@
     </script>
 
     <link rel="icon" type="image/png" href="/Caf%C3%A9%20Coabita350.png" />
+    <link rel="preload" href="/lp-suassuna/images/sala-suassuna-02.webp" as="image" type="image/webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -70,16 +71,15 @@
     <script>
       // Helper function to delay opening a URL until a gtag event is sent.
       // Call it in response to an action that should navigate to a URL.
-      function gtagSendEvent(url) {
+      function gtagSendEvent(url, eventName) {
         var callback = function () {
           if (typeof url === 'string') {
-            window.location = url;
+            window.open(url, '_blank');
           }
         };
-        gtag('event', 'contato_sala_suassuna', {
+        gtag('event', eventName || 'contato_sala_suassuna', {
           'event_callback': callback,
           'event_timeout': 2000,
-          // <event_parameters>
         });
         return false;
       }

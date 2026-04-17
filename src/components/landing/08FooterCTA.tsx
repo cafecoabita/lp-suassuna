@@ -3,7 +3,7 @@ import AnimatedSection from "./00AnimatedSection";
 
 declare global {
   interface Window {
-    gtagSendEvent?: (url: string) => void;
+    gtagSendEvent?: (url: string, eventName?: string) => void;
   }
 }
 

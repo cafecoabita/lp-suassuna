@@ -2,6 +2,12 @@ import AnimatedSection from "./00AnimatedSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Car } from "lucide-react";
 
+declare global {
+  interface Window {
+    gtagSendEvent?: (url: string, eventName?: string) => void;
+  }
+}
+
 const WHATSAPP_ANUAL = "https://wa.me/553121158984/?text=Olá,+vi+seu+anúncio+no+google+e+gostaria+de+saber+mais+sobre+o+seu+plano+anual+da+Sala+Suassuna";
 const WHATSAPP_BIENAL = "https://wa.me/553121158984/?text=Olá,+vi+seu+anúncio+no+google+e+gostaria+de+saber+mais+sobre+o+seu+plano+bienal+da+Sala+Suassuna";
 
@@ -40,7 +46,7 @@ const PromoSection = () => (
             <p className="text-sm text-muted-foreground mb-2">1º mês por</p>
 
             <div className="rounded-lg border border-border bg-secondary px-4 py-4 mb-4">
-              <p className="text-5xl font-bold text-foreground">R$ 1.750</p>
+              <p className="text-4xl md:text-5xl font-bold text-foreground">R$ 1.750</p>
             </div>
 
             <p className="text-sm text-muted-foreground mb-2">+ 11 meses por</p>
@@ -58,6 +64,14 @@ const PromoSection = () => (
                 href={WHATSAPP_ANUAL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (typeof window.gtagSendEvent === "function") {
+                    window.gtagSendEvent(WHATSAPP_ANUAL, "contato_plano_anual");
+                  } else {
+                    window.open(WHATSAPP_ANUAL, "_blank");
+                  }
+                }}
                 className="inline-block bg-black text-white font-semibold py-2 px-5 rounded-sm text-sm tracking-wide hover:bg-zinc-700 transition-colors"
               >
                 Quero o Plano Anual
@@ -74,7 +88,7 @@ const PromoSection = () => (
             <p className="text-sm text-muted-foreground mb-2">1º mês por</p>
 
             <div className="rounded-lg border border-border bg-secondary px-4 py-4 mb-4">
-              <p className="text-5xl font-bold text-foreground">R$ 1.450</p>
+              <p className="text-4xl md:text-5xl font-bold text-foreground">R$ 1.450</p>
             </div>
 
             <p className="text-sm text-muted-foreground mb-2">+ 23 meses por</p>
@@ -92,6 +106,14 @@ const PromoSection = () => (
                 href={WHATSAPP_BIENAL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (typeof window.gtagSendEvent === "function") {
+                    window.gtagSendEvent(WHATSAPP_BIENAL, "contato_plano_bienal");
+                  } else {
+                    window.open(WHATSAPP_BIENAL, "_blank");
+                  }
+                }}
                 className="inline-block bg-black text-white font-semibold py-2 px-5 rounded-sm text-sm tracking-wide hover:bg-zinc-700 transition-colors"
               >
                 Quero o Plano Bienal

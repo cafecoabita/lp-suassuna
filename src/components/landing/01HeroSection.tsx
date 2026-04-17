@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 declare global {
   interface Window {
-    gtagSendEvent?: (url: string) => void;
+    gtagSendEvent?: (url: string, eventName?: string) => void;
   }
 }
 
@@ -54,7 +54,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-primary-foreground mb-10"
+          className="text-3xl md:text-6xl lg:text-7xl font-bold leading-tight text-primary-foreground mb-10"
         >
           Sala Suassuna
         </motion.h1>
@@ -64,7 +64,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="text-xl md:text-2xl font-light text-primary-foreground/80 mb-6 max-w-2xl mx-auto"
+          className="text-base md:text-2xl font-light text-primary-foreground/80 mb-6 max-w-2xl mx-auto"
         >
           Sala comercial mobiliada para equipes de até 17 pessoas · 38m²
         </motion.p>
