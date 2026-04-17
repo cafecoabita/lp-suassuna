@@ -65,12 +65,10 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-468915585');
+      gtag('config', 'AW-6261307082');
     </script>
 
-    <!-- Google tag (gtag.js) event - delayed navigation helper -->
     <script>
-      // Helper function to delay opening a URL until a gtag event is sent.
-      // Call it in response to an action that should navigate to a URL.
       function gtagSendEvent(url, eventName) {
         var callback = function () {
           if (typeof url === 'string') {
@@ -78,6 +76,7 @@
           }
         };
         gtag('event', eventName || 'contato_sala_suassuna', {
+          'lp_name': 'suassuna',
           'event_callback': callback,
           'event_timeout': 2000,
         });
