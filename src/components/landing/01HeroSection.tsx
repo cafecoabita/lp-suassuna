@@ -39,10 +39,10 @@ const HeroSection = () => (
 
       {/* Preço + urgência */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
-        <span className="bg-primary-foreground/15 border border-primary-foreground/30 text-primary-foreground text-sm font-semibold px-4 py-1.5 rounded-full">
+        <span className="bg-white text-gray-900 text-sm font-bold px-5 py-2 rounded-full shadow-md">
           A partir de R$ 2.900/mês
         </span>
-        <span className="bg-yellow-400/90 text-yellow-900 text-sm font-bold px-4 py-1.5 rounded-full animate-pulse">
+        <span className="bg-yellow-400 text-yellow-900 text-sm font-bold px-5 py-2 rounded-full shadow-md animate-pulse">
           ⚡ 50% OFF na entrada · Oferta até 30/04
         </span>
       </div>
