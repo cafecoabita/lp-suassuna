@@ -8,8 +8,8 @@ declare global {
   }
 }
 
-const WHATSAPP_ANUAL = "https://wa.me/553121158984/?text=Olá,+vi+seu+anúncio+no+google+e+gostaria+de+saber+mais+sobre+o+seu+plano+anual+da+Sala+Suassuna";
-const WHATSAPP_BIENAL = "https://wa.me/553121158984/?text=Olá,+vi+seu+anúncio+no+google+e+gostaria+de+saber+mais+sobre+o+seu+plano+bienal+da+Sala+Suassuna";
+const WHATSAPP_ANUAL = "https://wa.me/553121158984/?text=Olá,+vi+seu+anúncio+no+google+e+gostaria+de+saber+mais+sobre+o+seu+plano+de+1+ano+da+Sala+Suassuna";
+const WHATSAPP_BIENAL = "https://wa.me/553121158984/?text=Olá,+vi+seu+anúncio+no+google+e+gostaria+de+saber+mais+sobre+o+seu+plano+de+2+anos+da+Sala+Suassuna";
 
 const StarBadge = ({ label }: { label: string }) => (
   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -40,7 +40,7 @@ const PromoSection = () => (
 
         {/* PLANO ANUAL */}
         <Card className="relative border-2 border-black bg-background max-w-sm w-full mx-auto shadow-sm rounded-xl">
-          <StarBadge label="PLANO ANUAL" />
+          <StarBadge label="PLANO 1 ANO" />
 
           <CardContent className="pt-8 pb-8 px-6 text-center flex flex-col h-full">
             <p className="text-sm text-muted-foreground mb-2">1º mês por</p>
@@ -67,14 +67,14 @@ const PromoSection = () => (
                 onClick={(e) => {
                   e.preventDefault();
                   if (typeof window.gtagSendEvent === "function") {
-                    window.gtagSendEvent(WHATSAPP_ANUAL, "contato_plano_anual");
+                    window.gtagSendEvent(WHATSAPP_ANUAL, "contato_plano_1_ano");
                   } else {
                     window.open(WHATSAPP_ANUAL, "_blank");
                   }
                 }}
                 className="inline-block bg-black text-white font-semibold py-2 px-5 rounded-sm text-sm tracking-wide hover:bg-zinc-700 transition-colors"
               >
-                Quero o Plano Anual
+                Quero o Plano 1 Ano
               </a>
             </div>
           </CardContent>
@@ -82,7 +82,7 @@ const PromoSection = () => (
 
         {/* PLANO BIENAL */}
         <Card className="relative border-2 border-black bg-background max-w-sm w-full mx-auto shadow-sm rounded-xl">
-          <StarBadge label="PLANO BIENAL" />
+          <StarBadge label="PLANO 2 ANOS" />
 
           <CardContent className="pt-8 pb-8 px-6 text-center flex flex-col h-full">
             <p className="text-sm text-muted-foreground mb-2">1º mês por</p>
@@ -109,14 +109,14 @@ const PromoSection = () => (
                 onClick={(e) => {
                   e.preventDefault();
                   if (typeof window.gtagSendEvent === "function") {
-                    window.gtagSendEvent(WHATSAPP_BIENAL, "contato_plano_bienal");
+                    window.gtagSendEvent(WHATSAPP_BIENAL, "contato_plano_2_anos");
                   } else {
                     window.open(WHATSAPP_BIENAL, "_blank");
                   }
                 }}
                 className="inline-block bg-black text-white font-semibold py-2 px-5 rounded-sm text-sm tracking-wide hover:bg-zinc-700 transition-colors"
               >
-                Quero o Plano Bienal
+                Quero o Plano 2 Anos
               </a>
             </div>
           </CardContent>
