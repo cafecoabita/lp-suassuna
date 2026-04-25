@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cafecoabita.github.io/lp-suassuna/sitemap.xml
