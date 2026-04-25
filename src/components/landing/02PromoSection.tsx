@@ -20,7 +20,7 @@ const StarBadge = ({ label }: { label: string }) => (
 );
 
 const PromoSection = () => (
-  <AnimatedSection className="py-20 md:py-28 px-6 bg-background">
+  <AnimatedSection id="planos" className="py-20 md:py-28 px-6 bg-background">
     <div className="max-w-4xl mx-auto text-center">
 
       <p className="tracking-[0.3em] uppercase text-sm font-medium text-foreground/70 mb-6">
@@ -40,7 +40,7 @@ const PromoSection = () => (
 
         {/* PLANO ANUAL */}
         <Card className="relative border-2 border-black bg-background max-w-sm w-full mx-auto shadow-sm rounded-xl">
-          <StarBadge label="PLANO 1 ANO" />
+          <StarBadge label="1 ANO" />
 
           <CardContent className="pt-8 pb-8 px-6 text-center flex flex-col h-full">
             <p className="text-sm text-muted-foreground mb-2">1º mês por</p>
@@ -74,7 +74,7 @@ const PromoSection = () => (
                 }}
                 className="inline-block bg-black text-white font-semibold py-2 px-5 rounded-sm text-sm tracking-wide hover:bg-zinc-700 transition-colors"
               >
-                Quero o Plano 1 Ano
+                Quero o plano por um ano
               </a>
             </div>
           </CardContent>
@@ -82,7 +82,7 @@ const PromoSection = () => (
 
         {/* PLANO BIENAL */}
         <Card className="relative border-2 border-black bg-background max-w-sm w-full mx-auto shadow-sm rounded-xl">
-          <StarBadge label="PLANO 2 ANOS" />
+          <StarBadge label="2 ANOS" />
 
           <CardContent className="pt-8 pb-8 px-6 text-center flex flex-col h-full">
             <p className="text-sm text-muted-foreground mb-2">1º mês por</p>
@@ -116,7 +116,7 @@ const PromoSection = () => (
                 }}
                 className="inline-block bg-black text-white font-semibold py-2 px-5 rounded-sm text-sm tracking-wide hover:bg-zinc-700 transition-colors"
               >
-                Quero o Plano 2 Anos
+                Quero o plano por dois anos
               </a>
             </div>
           </CardContent>

@@ -4,9 +4,10 @@ interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  id?: string;
 }
 
-const AnimatedSection = ({ children, className = "", delay = 0 }: AnimatedSectionProps) => {
+const AnimatedSection = ({ children, className = "", delay = 0, id }: AnimatedSectionProps) => {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const AnimatedSection = ({ children, className = "", delay = 0 }: AnimatedSectio
   return (
     <section
       ref={ref}
+      id={id}
       className={`opacity-0 translate-y-10 transition-all duration-700 ease-out [&.animate-in]:opacity-100 [&.animate-in]:translate-y-0 ${className}`}
     >
       {children}

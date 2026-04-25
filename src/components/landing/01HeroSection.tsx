@@ -1,13 +1,5 @@
 import { ArrowRight } from "lucide-react";
 
-declare global {
-  interface Window {
-    gtagSendEvent?: (url: string, eventName?: string) => void;
-  }
-}
-
-const WHATSAPP_LINK = "https://wa.me/553121158984/?text=Olá!+Vi+no+site+sua+promoção+da+sala+privativa+Suassuna.+A+sala+ainda+está+disponível?";
-
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
     {/* Background image estática */}
@@ -37,33 +29,17 @@ const HeroSection = () => (
         Sala comercial mobiliada para equipes de até 17 pessoas · 38m²
       </p>
 
-      {/* Preço + urgência */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
-        <span className="bg-white text-gray-900 text-sm font-bold px-5 py-2 rounded-full shadow-md">
-          A partir de R$ 2.900/mês
-        </span>
-        <span className="bg-yellow-400 text-yellow-900 text-sm font-bold px-5 py-2 rounded-full shadow-md animate-pulse">
-          ⚡ 50% OFF na entrada · Oferta até 30/04
-        </span>
-      </div>
-
-      {/* CTA */}
+      {/* Preço clicável → seção de planos */}
       <a
-        href={WHATSAPP_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#planos"
         onClick={(e) => {
           e.preventDefault();
-          if (typeof window.gtagSendEvent === "function") {
-            window.gtagSendEvent(WHATSAPP_LINK, "cta_hero_agendar_visita");
-          } else {
-            window.open(WHATSAPP_LINK, "_blank");
-          }
+          document.getElementById("planos")?.scrollIntoView({ behavior: "smooth" });
         }}
-        className="inline-flex items-center gap-2 bg-primary-foreground text-foreground font-semibold px-10 py-4 rounded-sm text-lg tracking-wide hover:bg-primary-foreground/90 transition-colors"
+        className="inline-flex items-center gap-2 bg-white text-gray-900 text-sm font-bold px-5 py-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
       >
-        Agende uma visita
-        <ArrowRight className="h-5 w-5" />
+        <ArrowRight className="h-4 w-4" />
+        A partir de R$ 2.900/mês
       </a>
     </div>
 
